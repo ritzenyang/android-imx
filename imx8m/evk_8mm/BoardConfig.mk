@@ -71,7 +71,7 @@ TARGET_BOOTLOADER_BOARD_NAME := EVK
 USE_OPENGL_RENDERER := true
 
 # 8mm LPDDR4 board use NXP 8987 wifi
-BOARD_WLAN_DEVICE            := nxp
+BOARD_WLAN_DEVICE            := qcwcn
 WPA_SUPPLICANT_VERSION       := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER  := NL80211
 BOARD_HOSTAPD_DRIVER         := NL80211
@@ -79,12 +79,16 @@ BOARD_HOSTAPD_PRIVATE_LIB               := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 
 # NXP 8987 wifi support dual interface
-WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+#WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # NXP 8987 wifi driver module
+#BOARD_VENDOR_KERNEL_MODULES += \
+#  $(KERNEL_OUT)/drivers/net/wireless/nxp/mxm_wifiex/wlan_src/mlan.ko \
+#  $(KERNEL_OUT)/drivers/net/wireless/nxp/mxm_wifiex/wlan_src/moal.ko
+
+
 BOARD_VENDOR_KERNEL_MODULES += \
-  $(KERNEL_OUT)/drivers/net/wireless/nxp/mxm_wifiex/wlan_src/mlan.ko \
-  $(KERNEL_OUT)/drivers/net/wireless/nxp/mxm_wifiex/wlan_src/moal.ko
+   $(KERNEL_OUT)/drivers/net/wireless/qcacld-2.0/wlan.ko
 
 # Qcom 1PJ(QCA9377) BT
 BOARD_HAVE_BLUETOOTH_QCOM := true
