@@ -22,6 +22,7 @@ PRODUCT_PACKAGES += \
     libedid \
     libion \
     slideshow \
+    linphone \
     verity_warning_images
 
 ifneq ($(PRODUCT_IMX_CAR),true)
